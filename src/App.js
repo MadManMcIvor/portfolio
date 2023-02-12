@@ -10,7 +10,7 @@ import Skills from "./comps/Skills";
 
 function App() {
   return (
-      <>
+      <div className="bg-gradient-to-r from-emerald-600 to-sky-600 w-fu h-screen">
         <Nav />
         <Sidebar />
         <Hero />
@@ -19,7 +19,7 @@ function App() {
         <Projects />
         <Contact />
         <Footer />
-      </>
+      </div>
     );
 }
 

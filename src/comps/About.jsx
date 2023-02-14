@@ -1,7 +1,7 @@
 
 function About() {
   return (
-    <section className="bg-gray-50 bg-opacity-20 px-40 h-auto">
+    <section className="bg-gray-50 bg-opacity-30 px-40 h-auto py-10">
       
       {/* Text */}
       <div className="text-lg text-gray-50">

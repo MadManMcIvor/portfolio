@@ -3,7 +3,7 @@ import headshot from '../assets/headshot-mcivor-alex.jpg'
 
 function Hero() {
   return (
-    <section id="hero" className="md:flex md:justify-around md:items-center pt-20 pb-40 px-20">  
+    <section id="hero" className="bg-gradient-to-r from-emerald-600 to-sky-600 w-fu md:flex md:justify-around md:items-center pt-20 pb-40 px-20">  
       {/* TEXT */}
       <div className='md:w-2/5'>
         <div className="basis-4/5 mt-5 md:mt-32">

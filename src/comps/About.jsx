@@ -1,11 +1,11 @@
 
 function About() {
   return (
-    <section className="bg-gray-50 bg-opacity-30 px-40 h-auto py-10">
+    <section className="bg-gray-50 bg-opacity-20 md:px-40 px-10 h-auto py-10">
       
       {/* Text */}
-      <div className="text-lg text-gray-50">
-        <div className=" text-4xl pt-4 underline">
+      <div className="text-lg text-white">
+        <div className=" text-4xl pt-4 pb-2 underline">
           <h2>
             About Me
           </h2>

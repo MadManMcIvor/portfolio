@@ -7,13 +7,13 @@ import SkillElement from './SkillElement'
 
 function Skills() {  
   return (
-  <section className='bg-gray-50 px-40 h-auto py-10'>
-    <div className="text-4xl pt-4 text-center">
+  <section className='bg-gray-50 md:px-40 px-10 h-auto py-10'>
+    <div className="text-5xl pt-4 text-center">
       <h2 className='bg-gradient-to-r from-emerald-600 to-sky-600 inline-block text-transparent bg-clip-text'>
         Skills
       </h2>
     </div>
-    <div className='flex-wrap justify-between'>
+    <div className='flex-wrap justify-center'>
       <SkillElement icon={<FaReact/>} text="React" />
       <SkillElement icon={<FaHtml5/>} text="HTML" />
       <SkillElement icon={<FaCss3Alt/>} text="CSS" />
@@ -28,8 +28,6 @@ function Skills() {
       <SkillElement icon={<SiMysql/>} text="MySQL" />
       <SkillElement icon={<SiPostgresql/>} text="Postgres" />
       <SkillElement icon={<SiMongodb/>} text="Mongo" />
-
-
     </div>
   </section>
   )

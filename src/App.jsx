@@ -6,13 +6,11 @@ import Nav from "./comps/Nav";
 import Projects from "./comps/Projects";
 import Skills from "./comps/Skills";
 import { motion } from "framer-motion";
-import useMediaQuery from"./hooks/useMediaQuery"
 
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home");
   const [isTopOfPage, setIsTopOfPage] = useState(true);
-  const isDesktop = useMediaQuery("(min-width: 1060px)");
   
   useEffect(() => {
     const handleScroll = () => {

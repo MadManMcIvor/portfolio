@@ -19,7 +19,7 @@ function Hero() {
         {/* IMAGE */}
         <div className="basis-2/5 mt-5 md:mt-32">
           <div className=' rounded-full overflow-hidden'>
-            <img src={headshot}/>
+            <img src={headshot} alt='Alex headshot'/>
           </div>
         </div>
     </section>

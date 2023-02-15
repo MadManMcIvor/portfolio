@@ -1,7 +1,7 @@
 
 function ProjectElement({ title, description, link, photo }) {
   return (
-    <a href={link} target="_blank">
+    <a href={link} target="_blank" rel="noreferrer">
         <div className="p-5">
             <div className="group relative">
                 <img className="rounded h-52 w-full object-cover"

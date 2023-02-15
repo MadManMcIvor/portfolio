@@ -10,7 +10,7 @@ function Contact() {
     {/* IMAGE */}
     <div className="basis-2/5 mt-5 md:mt-10">
       <div className=' rounded-full overflow-hidden'>
-        <img src={Alex}/>
+        <img src={Alex} alt='Alex Avatar'/>
       </div>
     </div>
     
@@ -20,12 +20,12 @@ function Contact() {
         <h1 className="text-5xl underline font-semibold text-center pb-8 text-gray-100">Get in Touch</h1>
       </div>
       <div className='flex justify-evenly pb-7'>
-        <a href='mailto:mcivor444@gmail.com' alt='Email'><MdEmail className="text-6xl z-10 text-start md:text-start text-gray-100"/></a>
-        <a href='https://www.linkedin.com/in/alex-mcivor-swe/' alt='LinkedIn' target="_blank"><BsLinkedin className="text-6xl z-10 text-end md:text-end text-gray-100"/></a>
+        <a href='mailto:mcivor444@gmail.com' rel="noreferrer" alt='Email'><MdEmail className="text-6xl z-10 text-start md:text-start text-gray-100"/></a>
+        <a href='https://www.linkedin.com/in/alex-mcivor-swe/'rel="noreferrer" alt='LinkedIn' target="_blank"><BsLinkedin className="text-6xl z-10 text-end md:text-end text-gray-100"/></a>
       </div>
       <div className='flex justify-evenly'>
-      <a href='https://github.com/MadManMcIvor' alt='GitHub' target="_blank"><BsGithub className="text-6xl z-10 text-center md:text-start text-gray-100"/></a>
-      <a href='https://gitlab.com/MadManMcIvor' alt='GitLab' target="_blank"><RiGitlabFill className="text-6xl z-10 text-center md:text-start text-gray-100"/></a>
+      <a href='https://github.com/MadManMcIvor' rel="noreferrer" alt='GitHub' target="_blank"><BsGithub className="text-6xl z-10 text-center md:text-start text-gray-100"/></a>
+      <a href='https://gitlab.com/MadManMcIvor' rel="noreferrer" alt='GitLab' target="_blank"><RiGitlabFill className="text-6xl z-10 text-center md:text-start text-gray-100"/></a>
       </div>
     </div>
   

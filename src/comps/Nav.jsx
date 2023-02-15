@@ -140,7 +140,7 @@ const Nav = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
                                         setSelectedPage={setSelectedPage}
                                     />
                                 </li>
-                                <a href="https://drive.google.com/file/d/16ZCNcdScyZTGL7jvFNN4MLrfy2F50iXZ/view?usp=share_link" target="_blank">
+                                <a href="https://drive.google.com/file/d/16ZCNcdScyZTGL7jvFNN4MLrfy2F50iXZ/view?usp=share_link" rel="noreferrer"  target="_blank">
                                     <Resume>
                                           Resume
                                     </Resume>

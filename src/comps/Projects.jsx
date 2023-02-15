@@ -7,7 +7,7 @@ import Discord from '../assets/discord.jpeg'
 
 function Projects() {
   return (
-    <section className="bg-gray-50 md:px-28 px-10 h-auto py-10 my-1">
+    <section id='projects' className="bg-gray-50 md:px-28 px-10 h-auto py-10 my-1">
     
     <div className="text-5xl text-center pb-2">
       <h2 className='bg-gradient-to-r from-emerald-600 to-sky-600 inline-block text-transparent bg-clip-text'>
@@ -33,7 +33,7 @@ function Projects() {
 
         <ProjectElement 
           title="AleTrail"
-          description="A single-pageBeer and brewery app built with React, FastAPI, and deployed using Heroku and GitLab pages."      
+          description="A single-page Beer and brewery app built with React, FastAPI, and deployed using Heroku and GitLab pages."      
           link="https://gitlab.com/aletrail/ale-trail-alpha"
           photo={AleTrail} 
             />

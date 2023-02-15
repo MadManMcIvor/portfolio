@@ -1,7 +1,7 @@
 
 function About() {
   return (
-    <section className="bg-gray-50 bg-opacity-20 md:px-40 px-10 h-auto py-10">
+    <section id='about' className="bg-gray-50 bg-opacity-20 md:px-40 px-10 h-auto py-10">
       
       {/* Text */}
       <div className="text-lg text-white">

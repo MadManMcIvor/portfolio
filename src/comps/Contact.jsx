@@ -5,7 +5,7 @@ import {RiGitlabFill} from 'react-icons/ri'
  
 function Contact() {
   return (
-    <section id="hero" className="bg-gradient-to-r from-emerald-600 to-sky-600 w-fu md:flex md:justify-around md:items-center pb-10 px-20">  
+    <section id="contact" className="bg-gradient-to-r from-emerald-600 to-sky-600 w-fu md:flex md:justify-around md:items-center pb-10 px-20">  
     
     {/* IMAGE */}
     <div className="basis-2/5 mt-5 md:mt-10">

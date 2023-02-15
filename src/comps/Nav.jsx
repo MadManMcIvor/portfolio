@@ -3,7 +3,6 @@ import Resume from "./Resume";
 
 function Nav() {
     let sections =[
-        {name:"Home",link:"/"},
         {name:"About",link:"/"},
         {name:"Skills",link:"/"},
         {name:"Projects",link:"/"},
@@ -18,7 +17,7 @@ function Nav() {
           <span className='text-3xl text-cyan-800 mr-1 pt-2'>
           <ion-icon name="logo-ionic"></ion-icon>
           </span>
-          Alex McIvor
+          <a href='/'> Alex McIvor </a>
         </div>
         
         <div onClick={()=>setOpen(!open)} className='text-3xl absolute right-8 top-6 cursor-pointer md:hidden'>
@@ -33,9 +32,11 @@ function Nav() {
               </li>
             ))
           }
-          <Resume>
-                Resume
-          </Resume>
+          <a href="https://drive.google.com/file/d/16ZCNcdScyZTGL7jvFNN4MLrfy2F50iXZ/view?usp=share_link" target="_blank">
+            <Resume>
+                  Resume
+            </Resume>
+          </a>
         </ul>
         </div>
       </div>

@@ -7,7 +7,7 @@ import SkillElement from './SkillElement'
 
 function Skills() {  
   return (
-  <section className='bg-gray-50 md:px-28 px-10 h-auto py-10'>
+  <section id='skills' className='bg-gray-50 md:px-28 px-10 h-auto py-10'>
 
     <div className="text-5xl text-center pb-2">
       <h2 className='bg-gradient-to-r from-emerald-600 to-sky-600 inline-block text-transparent bg-clip-text'>
@@ -16,7 +16,7 @@ function Skills() {
     </div>
     
     <div className='flex flex-row justify-center'>
-      <div className="flex flex-wrap w-full justify-center rounded bg-gray-200 bg-opacity-80">
+      <div className="flex flex-wrap w-full justify-center rounded bg-gray-200 bg-opacity-80 py-3">
         <SkillElement icon={<FaReact size={80} style={{ color: "white" }} />} text="React" />
         <SkillElement icon={<FaHtml5 size={80} style={{ color: "white" }} />} text="HTML" />
         <SkillElement icon={<FaCss3Alt size={80} style={{ color: "white" }} />} text="CSS" />

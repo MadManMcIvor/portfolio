@@ -4,7 +4,6 @@ import Footer from "./comps/Footer";
 import Hero from "./comps/Hero";
 import Nav from "./comps/Nav";
 import Projects from "./comps/Projects";
-import Sidebar from "./comps/Sidebar";
 import Skills from "./comps/Skills";
 
 
@@ -12,7 +11,6 @@ function App() {
   return (
       <div className="bg-gradient-to-r from-emerald-600 to-sky-600 w-fu">
         <Nav />
-        <Sidebar />
         <Hero />
         <About />
         <Skills />

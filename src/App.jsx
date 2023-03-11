@@ -5,13 +5,19 @@ import Hero from "./comps/Hero";
 import Nav from "./comps/Nav";
 import Projects from "./comps/Projects";
 import Skills from "./comps/Skills";
+import AskAlex from "./comps/AskAlex";
 import { motion } from "framer-motion";
-
+import {BsFillChatRightTextFill} from "react-icons/bs"
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home");
   const [isTopOfPage, setIsTopOfPage] = useState(true);
-  
+  const [showChat, setShowChat] = useState(false);
+
+  const handleShowChat = () => {
+    setShowChat(!showChat)
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY === 0) {
@@ -65,9 +71,19 @@ function App() {
         >
           <Contact />
         </motion.div>
-
+          {showChat? <AskAlex/> :  
+          <div className="fixed right-7 bottom-4">
+            <button onClick={handleShowChat}><BsFillChatRightTextFill size={80}/></button>
+          </div>}
       </div>
     );
 }
 
 export default App;
+
+
+// This is for before trying to use the DaisyUI Modal
+// {showChat? <AskAlex/> :  
+// <div className="fixed right-7 bottom-4">
+//   <button onClick={handleShowChat}><BsFillChatRightTextFill size={80}/></button>
+// </div>}

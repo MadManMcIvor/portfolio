@@ -12,6 +12,7 @@ const callChatGPT = async (text, messageLog) => {
       
     const completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
+        temperature: 0.2,
         messages: [
             {role: "system", content: "You are a helpful assistant answering questions about this person from this resume: https://docs.google.com/document/d/1MlQVs8xzh7FFM4Kday8sr6_OQRpxsI606l2-9DKNnmw/edit?usp=sharing"}, ...messageLog,
             {role: "user", content: text}
@@ -24,21 +25,25 @@ const callChatGPT = async (text, messageLog) => {
 const AskAlex = () => {
     const [message, setMessage] = useState('')
     const [messageLog, setMessageLog] = useState([])
-    const [counter, setCounter] = useState(0)
+
+    // const getTimeStamp = () => {
+    //     const date = new Date()
+    //     return(date.toLocaleTimeString())
+    // }
 
     const AlexReply = ({text}) => {
         return (
             <div className="chat chat-start">
                 <div className="chat-image avatar">
-                    <div className="w-10 rounded-full">
+                    <div className="w-10 rounded-full bg-slate-300">
                     <img alt="alex_avatar" src={Alex} />
                     </div>
                 </div>
-                <div className="chat-header">
-                    Alex Bot 
-                    <time className="text-xs opacity-50"> 12:45</time>
+                <div className="chat-header text-gray-800">
+                    Alex Bot
+                    {/* <time className="text-xs opacity-50 p-2">{getTimeStamp()}</time> */}
                 </div>
-                <div className="chat-bubble">{text}</div>
+                <div className="chat-bubble bg-slate-500 text-white">{text}</div>
             </div>
         )
     }
@@ -47,10 +52,10 @@ const AskAlex = () => {
         return(
             <> 
                 <div className="chat chat-end">
-                    <div className="chat-header">
-                        <time className="text-xs opacity-50">12:46</time>
+                    <div className="chat-header text-gray-800">
+                        {/* <time className="text-xs opacity-50">{getTimeStamp()}</time> */}
                     </div>
-                <div className="chat-bubble">{text}</div>
+                <div className="chat-bubble bg-blue-500 text-white">{text}</div>
                 </div>
 
                 <div className="form-control w-full max-w-xs">
@@ -69,7 +74,6 @@ const AskAlex = () => {
         const chatResponse = await callChatGPT(message, messageLog)
         console.log(chatResponse, "THIS IS FINALLY FIRING!")
         if (chatResponse) {
-            setCounter(counter+1)
             console.log("Message Log Before", messageLog)
             setMessageLog([...messageLog, {role: "user", content: message}, {role: "assistant", content: chatResponse.content}])
             console.log("Message Log After", messageLog)
@@ -80,27 +84,29 @@ const AskAlex = () => {
     return (
         <>
             {/* The button to open modal */}
-            <div className='fixed right-5 bottom-6'>
-                <label htmlFor="my-modal-6" className="btn"><BsFillChatRightTextFill size={20}/> Ask Alex</label>
+            <div className='fixed right-5 bottom-6 bg-transparent'>
+                <label htmlFor="my-modal-6" className="btn text-white bg-slate-500"><BsFillChatRightTextFill size={20}/> 
+                <div className='p-2'>Ask Alex</div>
+                </label>
             </div>
             {/* Put this part before </body> tag */}
             <input type="checkbox" id="my-modal-6" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
-            <div className="modal-box">
-                <h3 className="font-bold text-lg">Introducing AlexBot-1.0</h3>
+            <div className="modal-box bg-slate-200">
+                <h3 className="font-bold text-lg text-gray-800">Introducing AlexBot-1.0</h3>
                 <AlexReply text="Ask me anything :)" />
                 {messageLog.map(item => {
                     return (
-                        item.role == "user" ? <UserReply key={`user ${counter}`} text={item.content} /> : 
-                        <AlexReply key={`Alex ${counter}`} text={item.content} />
+                        item.role == "user" ? <UserReply text={item.content} /> : 
+                        <AlexReply text={item.content} />
                     )
                 }) }
                 <div className='float-right my-4'>
                     <form onSubmit={handleSubmit}> 
-                    <input type="text" placeholder="Ask Alex something" value={message} onChange={handleChange} className="input input-bordered w-full max-w-xs" />
+                    <input type="text" placeholder="Ask Alex something" value={message} onChange={handleChange} className="input input-bordered w-full max-w-xs bg-white text-gray-800" />
                     </form>
                 <div className="modal-action">
-                     <label htmlFor="my-modal-6" className="btn float-right">X</label>
+                     <label htmlFor="my-modal-6" className="btn float-right bg-gray-600 text-white">X</label>
                 </div>
                 </div>
             </div>
@@ -110,27 +116,3 @@ const AskAlex = () => {
 }
 
 export default AskAlex
-
-
-
-
-
-// This is before trying to use the DaisyUI Modal
-{/* <section className='fixed bottom-10 right-8 w-3.5'> 
-<div className='flex justify-center'> 
-    <div className="p-10 bg-white">
-        <AlexReply text="Ask me anything :)" />
-        {messageLog.map(item => {
-            return (
-                item.role == "user" ? <UserReply text={item.message} /> : <AlexReply text={item.message} />
-            )
-        }) }
-        
-        <div className='float-right'>
-            <form onSubmit={handleSubmit}> 
-            <input type="text" placeholder="Ask Alex something" value={message} onChange={handleChange} className="input input-bordered w-full max-w-xs" />
-            </form>
-        </div>
-    </div>
-</div>
-</section> */}

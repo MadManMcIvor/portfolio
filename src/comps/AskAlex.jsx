@@ -97,7 +97,7 @@ const AskAlex = () => {
                 <AlexReply text="Ask me anything :)" />
                 {messageLog.map(item => {
                     return (
-                        item.role == "user" ? <UserReply text={item.content} /> : 
+                        item.role === "user" ? <UserReply text={item.content} /> : 
                         <AlexReply text={item.content} />
                     )
                 }) }

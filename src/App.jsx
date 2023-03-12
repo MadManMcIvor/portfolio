@@ -5,13 +5,13 @@ import Hero from "./comps/Hero";
 import Nav from "./comps/Nav";
 import Projects from "./comps/Projects";
 import Skills from "./comps/Skills";
+import AskAlex from "./comps/AskAlex";
 import { motion } from "framer-motion";
-
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home");
   const [isTopOfPage, setIsTopOfPage] = useState(true);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY === 0) {
@@ -65,7 +65,7 @@ function App() {
         >
           <Contact />
         </motion.div>
-
+        <AskAlex/>
       </div>
     );
 }

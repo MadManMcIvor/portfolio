@@ -2,34 +2,11 @@ import React, {useState} from 'react'
 import Alex from '../assets/alex_avatar.png'
 import {BsFillChatRightTextFill} from "react-icons/bs"
 
-const { Configuration, OpenAIApi } = require("openai");
-
-const callChatGPT = async (text, messageLog) => { 
-    const configuration = new Configuration({
-        apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-      });
-    const openai = new OpenAIApi(configuration);
-      
-    const completion = await openai.createChatCompletion({
-        model: "gpt-3.5-turbo",
-        temperature: 0.2,
-        messages: [
-            {role: "system", content: "You are a helpful assistant answering questions about this person from this resume: https://docs.google.com/document/d/1MlQVs8xzh7FFM4Kday8sr6_OQRpxsI606l2-9DKNnmw/edit?usp=sharing"}, ...messageLog,
-            {role: "user", content: text}
-        ],
-      });
-    console.log(completion.data.choices[0].message);
-    return(completion.data.choices[0].message);
-}
-
 const AskAlex = () => {
     const [message, setMessage] = useState('')
     const [messageLog, setMessageLog] = useState([])
 
-    // const getTimeStamp = () => {
-    //     const date = new Date()
-    //     return(date.toLocaleTimeString())
-    // }
+   
 
     const AlexReply = ({text}) => {
         return (
@@ -69,14 +46,22 @@ const AskAlex = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(message)
         setMessageLog([...messageLog, {role: "user", content: message}])
-        const chatResponse = await callChatGPT(message, messageLog)
-        console.log(chatResponse, "THIS IS FINALLY FIRING!")
+        const data = {};
+        data.message = message;
+        data.messageLog = messageLog;
+        const Url = process.env.REACT_APP_ALEXBOT_API_URL;
+        const fetchOptions = {
+          method: 'post',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        };
+        const chatResponse = await fetch(Url, fetchOptions)
         if (chatResponse) {
-            console.log("Message Log Before", messageLog)
-            setMessageLog([...messageLog, {role: "user", content: message}, {role: "assistant", content: chatResponse.content}])
-            console.log("Message Log After", messageLog)
+            const newChatResponse = await chatResponse.json()
+            setMessageLog([...messageLog, {role: "user", content: message}, {role: "assistant", content: newChatResponse.content}])
             setMessage('')
         }
     }
